@@ -1,7 +1,10 @@
 package org.mliuframework.rpc.service;
 
 /**
- * Created by Michael on 7/14/16.
+ * Created by Michael on 7/14/16
+ *
+ * RMI: rmi://localhost:1199/RmiMessageService
+ * Hessian: http://localhost:8080/remoting/HessianMessageService
  */
 public interface MessageService {
 

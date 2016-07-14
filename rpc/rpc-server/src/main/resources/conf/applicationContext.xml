@@ -8,13 +8,22 @@
 					       http://www.springframework.org/schema/beans/spring-beans.xsd">
 
     <bean id="messageService" class="org.mliuframework.rpc.service.impl.MessageServiceImpl"/>
+	<bean id="accountService" class="org.mliuframework.rpc.service.impl.AccountServiceImpl"/>
 
 	<!-- configure rmi service -->
-	<bean class="org.springframework.remoting.rmi.RmiServiceExporter">
+	<bean id="rmiMessageServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
 		<!-- does not necessarily have to be the same name as the bean to be exported -->
 		<property name="serviceName" value="RmiMessageService"/>
 		<property name="service" ref="messageService"/>
 		<property name="serviceInterface" value="org.mliuframework.rpc.service.MessageService"/>
+		<!-- defaults to 1099 -->
+		<property name="registryPort" value="1199"/>
+	</bean>
+	<bean id="rmiAccountServiceExporter" class="org.springframework.remoting.rmi.RmiServiceExporter">
+		<!-- does not necessarily have to be the same name as the bean to be exported -->
+		<property name="serviceName" value="RmiAccountService"/>
+		<property name="service" ref="accountService"/>
+		<property name="serviceInterface" value="org.mliuframework.rpc.service.AccountService"/>
 		<!-- defaults to 1099 -->
 		<property name="registryPort" value="1199"/>
 	</bean>

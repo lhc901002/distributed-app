@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 /**
- * Created by Michael on 7/14/16.
+ * Created by Michael on 7/14/16
  */
 @Controller
 @RequestMapping("/rmi/message")
