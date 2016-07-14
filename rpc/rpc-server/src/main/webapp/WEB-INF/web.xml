@@ -37,6 +37,16 @@
         <url-pattern>/remoting/*</url-pattern>
     </servlet-mapping>
 
+    <servlet>
+        <servlet-name>webservice</servlet-name>
+        <servlet-class>org.apache.cxf.transport.servlet.CXFServlet</servlet-class>
+        <load-on-startup>2</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>webservice</servlet-name>
+        <url-pattern>/webservice/*</url-pattern>
+    </servlet-mapping>
+
     <filter>
         <filter-name>encodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

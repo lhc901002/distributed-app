@@ -29,4 +29,13 @@
 		<property name="serviceInterface" value="org.mliuframework.rpc.service.AccountService"/>
 	</bean>
 
+	<!--Web service using cxf-->
+	<bean id="accountWebService" class="org.mliuframework.rpc.service.AccountWebService"
+		  factory-bean="accountWebServiceFactory" factory-method="create"/>
+	<bean id="accountWebServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
+		<property name="serviceClass" value="org.mliuframework.rpc.service.AccountWebService"/>
+		<property name="address" value="${ws.account.url}"/>
+	</bean>
+
+
 </beans>
