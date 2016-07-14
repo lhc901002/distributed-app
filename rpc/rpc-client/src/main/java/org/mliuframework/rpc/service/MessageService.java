@@ -1,9 +1,9 @@
-package org.mliuframework.rpc.rmi.service;
+package org.mliuframework.rpc.service;
 
 /**
  * Created by Michael on 7/14/16.
  */
-public interface RmiMessageService {
+public interface MessageService {
 
     String echo(String message);
 

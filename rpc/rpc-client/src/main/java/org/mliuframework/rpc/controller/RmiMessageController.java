@@ -1,12 +1,10 @@
-package org.mliuframework.rpc.rmi.controller;
+package org.mliuframework.rpc.controller;
 
 import com.alibaba.fastjson.JSONObject;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.mliuframework.rpc.rmi.service.RmiMessageService;
+import org.mliuframework.rpc.service.MessageService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,7 +21,7 @@ public class RmiMessageController {
     private static final Log log = LogFactory.getLog(RmiMessageController.class);
 
     @Autowired
-    private RmiMessageService rmiMessageService;
+    private MessageService rmiMessageService;
 
     /**
      * http://localhost:8081/rpc/rmi/message/send
@@ -37,11 +35,5 @@ public class RmiMessageController {
         return rspStr;
     }
 
-    public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("classpath:conf/applicationContext.xml");
-        RmiMessageService client = (RmiMessageService)ctx.getBean("rmiMessageService");
-        String temp = client.echo("LvSantorini");
-        System.out.println(temp);
-    }
 
 }

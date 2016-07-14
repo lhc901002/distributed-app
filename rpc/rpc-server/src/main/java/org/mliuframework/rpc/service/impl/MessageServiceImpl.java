@@ -1,16 +1,16 @@
-package org.mliuframework.rpc.rmi.service.impl;
+package org.mliuframework.rpc.service.impl;
 
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.mliuframework.rpc.rmi.service.RmiMessageService;
+import org.mliuframework.rpc.service.MessageService;
 
 /**
  * Created by Michael on 7/14/16.
  */
-public class RmiMessageServiceImpl implements RmiMessageService {
+public class MessageServiceImpl implements MessageService {
 
-    private static final Log log = LogFactory.getLog(RmiMessageServiceImpl.class);
+    private static final Log log = LogFactory.getLog(MessageServiceImpl.class);
 
     @Override
     public String echo(String message) {
