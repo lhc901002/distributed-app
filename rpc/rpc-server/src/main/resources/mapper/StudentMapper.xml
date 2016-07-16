@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.mliuframework.spring.rpc.dao.StudentMapper">
+
+    <resultMap id="studentBaseResultMap" type="StudentVo">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="s_name" property="name" jdbcType="VARCHAR"/>
+        <result column="s_age" property="age" jdbcType="INTEGER"/>
+        <result column="create_time" property="createTime" javaType="String" jdbcType="TIMESTAMP"/>
+        <result column="update_time" property="updateTime" javaType="String" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="student_Base_Column_List">
+        id, s_name, s_age, create_time, update_time
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="studentBaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="student_Base_Column_List"/>
+        from tb_student
+        where id = #{id, jdbcType=BIGINT}
+    </select>
+
+    <select id="selectAll" resultMap="studentBaseResultMap">
+        select
+        <include refid="student_Base_Column_List"/>
+        from tb_student
+    </select>
+
+    <select id="selectByProperties" resultMap="studentBaseResultMap" parameterType="Student">
+        select
+        <include refid="student_Base_Column_List"/>
+        from tb_student
+        <where>
+            <if test="id != null">
+                id = #{id, jdbcType=BIGINT}
+            </if>
+            <if test="name != null and name != ''">
+                AND s_name = #{name, jdbcType=VARCHAR}
+            </if>
+            <if test="age != null">
+                AND s_age = #{age, jdbcType=INTEGER}
+            </if>
+        </where>
+    </select>
+
+    <select id="selectByName" resultMap="studentBaseResultMap" parameterType="String">
+        select
+        <include refid="student_Base_Column_List"/>
+        from tb_student
+        where s_name like "%"#{name, jdbcType=VARCHAR}"%"
+    </select>
+
+    <select id="selectByIdList" resultMap="studentBaseResultMap" parameterType="java.util.List">
+        select
+        <include refid="student_Base_Column_List"/>
+        from tb_student
+        WHERE id IN
+        <foreach item="id" index="index" collection="idList" open="(" separator="," close=")">
+            #{id, jdbcType=BIGINT}
+        </foreach>
+    </select>
+
+
+    <insert id="insert" parameterType="Student" useGeneratedKeys="true" keyProperty="id">
+        <![CDATA[
+        insert into tb_student (id, s_name, s_age, create_time, update_time)
+        values (#{id, jdbcType=INTEGER}, #{name, jdbcType=VARCHAR}, #{age, jdbcType=INTEGER},
+                #{createTime, jdbcType=TIMESTAMP}, #{updateTime, jdbcType=TIMESTAMP})
+        ]]>
+    </insert>
+
+    <insert id="insertSelective" parameterType="Student" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_student
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null || name != ''">
+                s_name,
+            </if>
+            <if test="age != null">
+                s_age,
+            </if>
+            <if test="createTime != null">
+                create_time,
+            </if>
+            <if test="updateTime != null">
+                update_time,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id, jdbcType=INTEGER},
+            </if>
+            <if test="name != null and name != ''">
+                #{name, jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                #{age, jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                #{createTime, jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                #{updateTime, jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="Student">
+        update tb_student
+        <set>
+            <if test="name != null">
+                s_name = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="age != null">
+                s_age = #{age,jdbcType=INTEGER},
+            </if>
+            <if test="createTime != null">
+                create_time = #{createTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="updateTime != null">
+                update_time = #{updateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
+
+</mapper>

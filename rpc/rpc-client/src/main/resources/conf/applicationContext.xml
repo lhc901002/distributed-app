@@ -18,6 +18,10 @@
 		<property name="serviceUrl" value="${rmi.account.url}"/>
 		<property name="serviceInterface" value="org.mliuframework.rpc.service.AccountService"/>
 	</bean>
+	<bean id="rmiStudentService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
+		<property name="serviceUrl" value="${rmi.student.url}"/>
+		<property name="serviceInterface" value="org.mliuframework.rpc.service.StudentService"/>
+	</bean>
 
 	<!--Hessian service-->
 	<bean id="hessianMessageService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
