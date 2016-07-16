@@ -17,19 +17,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 /**
- * Created by Michael on 7/11/16.
+ * Created by Michael on 2016/7/16.
  */
 @Controller
-@RequestMapping("/rmi/student")
-public class RmiStudentController {
+@RequestMapping("/hessian/student")
+public class HessianStudentController {
 
-    private static final Log log = LogFactory.getLog(RmiStudentController.class);
+    private static final Log log = LogFactory.getLog(HessianStudentController.class);
 
     @Autowired
-    private StudentService rmiStudentService;
+    private StudentService hessianStudentService;
 
     /**
-     * http://localhost:8080/rpc/rmi/student/save
+     * http://localhost:8080/rpc/hessian/student/save
      */
     @RequestMapping(value = "/save", method = RequestMethod.POST)
     @ResponseBody
@@ -43,7 +43,7 @@ public class RmiStudentController {
             } else {
                 Student student = new Student.Builder().setId(studentVo.getId()).
                         setName(studentVo.getName()).setAge(studentVo.getAge()).build();
-                Student studentEntity = rmiStudentService.saveOrUpdateSelective(student);
+                Student studentEntity = hessianStudentService.saveOrUpdateSelective(student);
                 if (null == studentEntity) {
                     failFlag = true;
                 } else {
@@ -70,7 +70,7 @@ public class RmiStudentController {
     }
 
     /**
-     * http://localhost:8080/rpc/rmi/student/findbyid
+     * http://localhost:8080/rpc/hessian/student/findbyid
      */
     @RequestMapping(value = "/findbyid", method = RequestMethod.GET)
     @ResponseBody
@@ -82,7 +82,7 @@ public class RmiStudentController {
             if (id == null) {
                 failFlag = true;
             } else {
-                StudentVo student = rmiStudentService.findById(id);
+                StudentVo student = hessianStudentService.findById(id);
                 if (student == null) {
                     failFlag = true;
                 } else {
@@ -108,7 +108,7 @@ public class RmiStudentController {
     }
 
     /**
-     * http://localhost:8080/rpc/rmi/student/findbyname
+     * http://localhost:8080/rpc/hessian/student/findbyname
      */
     @RequestMapping(value = "/findbyname", method = RequestMethod.POST)
     @ResponseBody
@@ -121,7 +121,7 @@ public class RmiStudentController {
                 rspVo.setStatusInfo(PropertyUtils.getStatusInfo(ConstantUtils.STATUS_PREFIX +
                         ConstantUtils.STATUS_FAIL));
             } else {
-                List<StudentVo> studentList = rmiStudentService.findByName(studentVo.getName());
+                List<StudentVo> studentList = hessianStudentService.findByName(studentVo.getName());
                 rspVo.setStatus(ConstantUtils.STATUS_SUCCESS);
                 rspVo.setStatusInfo(PropertyUtils.getStatusInfo(ConstantUtils.STATUS_PREFIX +
                         ConstantUtils.STATUS_SUCCESS));

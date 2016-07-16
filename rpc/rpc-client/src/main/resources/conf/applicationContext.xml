@@ -1,45 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	   xmlns:context="http://www.springframework.org/schema/context"
 	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	   xsi:schemaLocation="http://www.springframework.org/schema/context
-					       http://www.springframework.org/schema/context/spring-context.xsd
-					       http://www.springframework.org/schema/beans
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans
 					       http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-	<context:property-placeholder location="classpath:property/url.properties" ignore-unresolvable="true" />
-
-	<!--RMI service-->
-	<bean id="rmiMessageService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
-		<property name="serviceUrl" value="${rmi.message.url}"/>
-		<property name="serviceInterface" value="org.mliuframework.rpc.service.MessageService"/>
-	</bean>
-	<bean id="rmiAccountService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
-		<property name="serviceUrl" value="${rmi.account.url}"/>
-		<property name="serviceInterface" value="org.mliuframework.rpc.service.AccountService"/>
-	</bean>
-	<bean id="rmiStudentService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
-		<property name="serviceUrl" value="${rmi.student.url}"/>
-		<property name="serviceInterface" value="org.mliuframework.rpc.service.StudentService"/>
-	</bean>
-
-	<!--Hessian service-->
-	<bean id="hessianMessageService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
-		<property name="serviceUrl" value="${hessian.message.url}"/>
-		<property name="serviceInterface" value="org.mliuframework.rpc.service.MessageService"/>
-	</bean>
-	<bean id="hessianAccountService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
-		<property name="serviceUrl" value="${hessian.account.url}"/>
-		<property name="serviceInterface" value="org.mliuframework.rpc.service.AccountService"/>
-	</bean>
-
-	<!--Web service using cxf-->
-	<bean id="accountWebService" class="org.mliuframework.rpc.service.AccountWebService"
-		  factory-bean="accountWebServiceFactory" factory-method="create"/>
-	<bean id="accountWebServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
-		<property name="serviceClass" value="org.mliuframework.rpc.service.AccountWebService"/>
-		<property name="address" value="${ws.account.url}"/>
-	</bean>
-
+	<import resource="classpath:conf/applicationContext-rpc.xml" />
 
 </beans>
