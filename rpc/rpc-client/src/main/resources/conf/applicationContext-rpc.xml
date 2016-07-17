@@ -12,36 +12,36 @@
 	<!--RMI service-->
 	<bean id="rmiMessageService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
 		<property name="serviceUrl" value="${rmi.message.url}"/>
-		<property name="serviceInterface" value="org.mliuframework.rpc.service.MessageService"/>
+		<property name="serviceInterface" value="org.michaelliu.rpc.service.MessageService"/>
 	</bean>
 	<bean id="rmiAccountService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
 		<property name="serviceUrl" value="${rmi.account.url}"/>
-		<property name="serviceInterface" value="org.mliuframework.rpc.service.AccountService"/>
+		<property name="serviceInterface" value="org.michaelliu.rpc.service.AccountService"/>
 	</bean>
 	<bean id="rmiStudentService" class="org.springframework.remoting.rmi.RmiProxyFactoryBean">
 		<property name="serviceUrl" value="${rmi.student.url}"/>
-		<property name="serviceInterface" value="org.mliuframework.rpc.service.StudentService"/>
+		<property name="serviceInterface" value="org.michaelliu.rpc.service.StudentService"/>
 	</bean>
 
 	<!--Hessian service-->
 	<bean id="hessianMessageService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
 		<property name="serviceUrl" value="${hessian.message.url}"/>
-		<property name="serviceInterface" value="org.mliuframework.rpc.service.MessageService"/>
+		<property name="serviceInterface" value="org.michaelliu.rpc.service.MessageService"/>
 	</bean>
 	<bean id="hessianAccountService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
 		<property name="serviceUrl" value="${hessian.account.url}"/>
-		<property name="serviceInterface" value="org.mliuframework.rpc.service.AccountService"/>
+		<property name="serviceInterface" value="org.michaelliu.rpc.service.AccountService"/>
 	</bean>
 	<bean id="hessianStudentService" class="org.springframework.remoting.caucho.HessianProxyFactoryBean">
 		<property name="serviceUrl" value="${hessian.student.url}"/>
-		<property name="serviceInterface" value="org.mliuframework.rpc.service.StudentService"/>
+		<property name="serviceInterface" value="org.michaelliu.rpc.service.StudentService"/>
 	</bean>
 
 	<!--Web service using cxf-->
-	<bean id="accountWebService" class="org.mliuframework.rpc.service.AccountWebService"
+	<bean id="accountWebService" class="org.michaelliu.rpc.service.AccountWebService"
 		  factory-bean="accountWebServiceFactory" factory-method="create"/>
 	<bean id="accountWebServiceFactory" class="org.apache.cxf.jaxws.JaxWsProxyFactoryBean">
-		<property name="serviceClass" value="org.mliuframework.rpc.service.AccountWebService"/>
+		<property name="serviceClass" value="org.michaelliu.rpc.service.AccountWebService"/>
 		<property name="address" value="${ws.account.url}"/>
 	</bean>
 

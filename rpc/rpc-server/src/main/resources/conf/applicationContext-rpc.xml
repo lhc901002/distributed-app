@@ -14,7 +14,7 @@
 		<!-- does not necessarily have to be the same name as the bean to be exported -->
 		<property name="serviceName" value="RmiMessageService"/>
 		<property name="service" ref="messageService"/>
-		<property name="serviceInterface" value="org.mliuframework.rpc.service.MessageService"/>
+		<property name="serviceInterface" value="org.michaelliu.rpc.service.MessageService"/>
 		<!-- defaults to 1099 -->
 		<property name="registryPort" value="1199"/>
 	</bean>
@@ -22,7 +22,7 @@
 		<!-- does not necessarily have to be the same name as the bean to be exported -->
 		<property name="serviceName" value="RmiAccountService"/>
 		<property name="service" ref="accountService"/>
-		<property name="serviceInterface" value="org.mliuframework.rpc.service.AccountService"/>
+		<property name="serviceInterface" value="org.michaelliu.rpc.service.AccountService"/>
 		<!-- defaults to 1099 -->
 		<property name="registryPort" value="1199"/>
 	</bean>
@@ -30,7 +30,7 @@
 		<!-- does not necessarily have to be the same name as the bean to be exported -->
 		<property name="serviceName" value="RmiStudentService"/>
 		<property name="service" ref="studentService"/>
-		<property name="serviceInterface" value="org.mliuframework.rpc.service.StudentService"/>
+		<property name="serviceInterface" value="org.michaelliu.rpc.service.StudentService"/>
 		<!-- defaults to 1099 -->
 		<property name="registryPort" value="1199"/>
 	</bean>
@@ -38,7 +38,7 @@
 	<!-- configure web service using cxf -->
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
-	<jaxws:endpoint id="accountWebService" implementor="org.mliuframework.rpc.service.impl.AccountWebServiceImpl"
+	<jaxws:endpoint id="accountWebService" implementor="org.michaelliu.rpc.service.impl.AccountWebServiceImpl"
 					address="/AccountWebService"/>
 
 

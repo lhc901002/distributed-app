@@ -9,15 +9,15 @@
     <!-- configure hessian service -->
     <bean name="/HessianMessageService" class="org.springframework.remoting.caucho.HessianServiceExporter">
         <property name="service" ref="messageService"/>
-        <property name="serviceInterface" value="org.mliuframework.rpc.service.MessageService"/>
+        <property name="serviceInterface" value="org.michaelliu.rpc.service.MessageService"/>
     </bean>
     <bean name="/HessianAccountService" class="org.springframework.remoting.caucho.HessianServiceExporter">
         <property name="service" ref="accountService"/>
-        <property name="serviceInterface" value="org.mliuframework.rpc.service.AccountService"/>
+        <property name="serviceInterface" value="org.michaelliu.rpc.service.AccountService"/>
     </bean>
     <bean name="/HessianStudentService" class="org.springframework.remoting.caucho.HessianServiceExporter">
         <property name="service" ref="studentService"/>
-        <property name="serviceInterface" value="org.mliuframework.rpc.service.StudentService"/>
+        <property name="serviceInterface" value="org.michaelliu.rpc.service.StudentService"/>
     </bean>
 
 </beans>

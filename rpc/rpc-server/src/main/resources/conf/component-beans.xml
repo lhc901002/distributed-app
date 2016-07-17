@@ -4,8 +4,8 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans
 					       http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <bean id="messageService" class="org.mliuframework.rpc.service.impl.MessageServiceImpl"/>
-    <bean id="accountService" class="org.mliuframework.rpc.service.impl.AccountServiceImpl"/>
-    <bean id="studentService" class="org.mliuframework.rpc.service.impl.StudentServiceImpl"/>
+    <bean id="messageService" class="org.michaelliu.rpc.service.impl.MessageServiceImpl"/>
+    <bean id="accountService" class="org.michaelliu.rpc.service.impl.AccountServiceImpl"/>
+    <bean id="studentService" class="org.michaelliu.rpc.service.impl.StudentServiceImpl"/>
 
 </beans>

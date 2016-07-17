@@ -7,7 +7,7 @@
 					       http://www.springframework.org/schema/beans
 					       http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <context:component-scan base-package="org.mliuframework.rpc.dao" />
+    <context:component-scan base-package="org.michaelliu.rpc.dao" />
 	
 	<import resource="classpath:conf/mybatis/mapper-config.xml" />
 	<import resource="classpath:conf/applicationContext-rpc.xml" />

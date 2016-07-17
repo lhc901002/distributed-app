@@ -44,7 +44,7 @@
     </tx:advice>
 
     <aop:config proxy-target-class="true">
-        <aop:pointcut id="serviceMethod" expression="execution(public * org.mliuframework.rpc.service.*.*(..))" />
+        <aop:pointcut id="serviceMethod" expression="execution(public * org.michaelliu.rpc.service.*.*(..))" />
         <aop:advisor pointcut-ref="serviceMethod" advice-ref="txAdvice" />
     </aop:config>
 
