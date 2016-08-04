@@ -17,7 +17,13 @@
     </properties>
 
     <dependencies>
-        <!-- dependency on module spring-beans -->
+        <!-- dependency on module ml-api -->
+        <dependency>
+            <groupId>org.michaelliu</groupId>
+            <artifactId>ml-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+        <!-- dependency on module ml-persistence -->
         <dependency>
             <groupId>org.michaelliu</groupId>
             <artifactId>ml-persistence</artifactId>

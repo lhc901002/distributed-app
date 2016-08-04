@@ -14,7 +14,8 @@
         <module>ml-rpc</module>
         <module>ml-service</module>
         <module>ml-web</module>
-        <module>ml-commons</module>
+        <module>ml-common</module>
+        <module>ml-api</module>
     </modules>
 
     <properties>
@@ -45,12 +46,6 @@
             <artifactId>spring-beans</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <!-- spring MVC -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
-        </dependency>
 
         <!--dependency for google guava-->
         <dependency>
@@ -70,13 +65,6 @@
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
         </dependency>
-
-        <!-- log4j日志打印 -->
-        <!--<dependency>-->
-            <!--<groupId>log4j</groupId>-->
-            <!--<artifactId>log4j</artifactId>-->
-            <!--<version>${log4j.version}</version>-->
-        <!--</dependency>-->
 
         <dependency>
             <groupId>junit</groupId>
