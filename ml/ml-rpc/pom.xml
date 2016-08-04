@@ -21,12 +21,23 @@
         <module>ml-rpc-api</module>
     </modules>
 
+    <properties>
+        <spring.version>4.3.0.RELEASE</spring.version>
+    </properties>
+
     <dependencies>
         <!-- dependency on module spring-beans -->
         <dependency>
             <groupId>org.michaelliu</groupId>
             <artifactId>ml-persistence</artifactId>
             <version>${project.version}</version>
+        </dependency>
+
+        <!-- spring MVC -->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>${spring.version}</version>
         </dependency>
     </dependencies>
 

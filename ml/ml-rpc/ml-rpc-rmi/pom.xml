@@ -12,7 +12,7 @@
     <artifactId>ml-rpc-rmi</artifactId>
 
     <dependencies>
-        <!-- dependency on module spring-beans -->
+        <!-- dependency on module ml-rpc-api -->
         <dependency>
             <groupId>org.michaelliu</groupId>
             <artifactId>ml-rpc-api</artifactId>
