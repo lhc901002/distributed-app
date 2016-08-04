@@ -28,7 +28,9 @@ public class RmiAccountService implements AccountService {
     @Override
     public Account findById(Long id) {
         log.info("findById receives id: " + id);
-        return new Account(1l, "Michael");
+        Account account = new Account(1l, "Michael");
+        log.info("findById responses: " + JSON.toJSONString(account));
+        return account;
     }
 
     @Override
@@ -37,7 +39,7 @@ public class RmiAccountService implements AccountService {
         accountList.add(new Account(1l, "Michael"));
         accountList.add(new Account(2l, "Steven"));
         accountList.add(new Account(3l, "Jackson"));
-        log.info("Account server responses: " + JSON.toJSONString(accountList));
+        log.info("findAll responses: " + JSON.toJSONString(accountList));
         return accountList;
     }
 

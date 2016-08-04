@@ -72,11 +72,11 @@
         </dependency>
 
         <!-- log4j日志打印 -->
-        <dependency>
-            <groupId>log4j</groupId>
-            <artifactId>log4j</artifactId>
-            <version>${log4j.version}</version>
-        </dependency>
+        <!--<dependency>-->
+            <!--<groupId>log4j</groupId>-->
+            <!--<artifactId>log4j</artifactId>-->
+            <!--<version>${log4j.version}</version>-->
+        <!--</dependency>-->
 
         <dependency>
             <groupId>junit</groupId>
