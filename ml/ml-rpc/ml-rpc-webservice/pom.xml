@@ -11,5 +11,29 @@
 
     <artifactId>ml-rpc-webservice</artifactId>
 
+    <properties>
+        <cxf.version>3.1.6</cxf.version>
+    </properties>
+
+    <dependencies>
+        <!-- dependency on module ml-rpc-api -->
+        <dependency>
+            <groupId>org.michaelliu</groupId>
+            <artifactId>ml-rpc-api</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- cxf web service -->
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-frontend-jaxws</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.cxf</groupId>
+            <artifactId>cxf-rt-transports-http</artifactId>
+            <version>${cxf.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>

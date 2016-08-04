@@ -26,6 +26,20 @@
             <version>${project.version}</version>
         </dependency>
 
+        <!-- dependency on module ml-rpc-hessian -->
+        <dependency>
+            <groupId>org.michaelliu</groupId>
+            <artifactId>ml-rpc-hessian</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- dependency on module ml-rpc-webservice -->
+        <dependency>
+            <groupId>org.michaelliu</groupId>
+            <artifactId>ml-rpc-webservice</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
         <!-- spring MVC -->
         <dependency>
             <groupId>org.springframework</groupId>

@@ -7,9 +7,6 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>ml-rpc-hessian</artifactId>
-    <packaging>war</packaging>
-    <name>ml-rpc-hessian Maven Webapp</name>
-    <url>http://maven.apache.org</url>
 
     <properties>
         <hessian.version>4.0.38</hessian.version>
@@ -39,7 +36,4 @@
         </dependency>
     </dependencies>
 
-    <build>
-        <finalName>ml-rpc-hessian</finalName>
-    </build>
 </project>
