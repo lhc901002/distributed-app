@@ -11,13 +11,23 @@
 
     <artifactId>ml-rpc</artifactId>
     <packaging>pom</packaging>
+
     <modules>
         <module>ml-rpc-rmi</module>
         <module>ml-rpc-hessian</module>
         <module>ml-rpc-webservice</module>
         <module>ml-rpc-redis</module>
         <module>ml-rpc-memcached</module>
+        <module>ml-rpc-api</module>
     </modules>
 
+    <dependencies>
+        <!-- dependency on module spring-beans -->
+        <dependency>
+            <groupId>org.michaelliu</groupId>
+            <artifactId>ml-persistence</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+    </dependencies>
 
 </project>

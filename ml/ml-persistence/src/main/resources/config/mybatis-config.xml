@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-config.dtd">
+
+<configuration>
+    <typeAliases>
+        <typeAlias type="org.michaelliu.entity.Account" alias="Account" />
+    </typeAliases>
+
+    <!--<typeHandlers>-->
+        <!--<typeHandler javaType="String" jdbcType="TIMESTAMP" handler="org.michaelliu.spring.orm.mybatis.handler.DateTypeHandler" />-->
+        <!--<typeHandler javaType="String" jdbcType="TINYINT" handler="org.michaelliu.spring.orm.mybatis.handler.ByteTypeHandler" />-->
+    <!--</typeHandlers>-->
+
+    <mappers>
+        <mapper resource="mapper/AccountMapper.xml"/>
+    </mappers>
+</configuration>

@@ -10,6 +10,7 @@
     <packaging>war</packaging>
     <name>ml-web Maven Webapp</name>
     <url>http://maven.apache.org</url>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
@@ -18,7 +19,8 @@
             <scope>test</scope>
         </dependency>
     </dependencies>
+
     <build>
-        <finalName>ml-web</finalName>
+        <finalName>ml</finalName>
     </build>
 </project>

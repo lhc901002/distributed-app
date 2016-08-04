@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/context
+					       http://www.springframework.org/schema/context/spring-context.xsd
+					       http://www.springframework.org/schema/beans
+					       http://www.springframework.org/schema/beans/spring-beans.xsd
+					       http://www.springframework.org/schema/aop
+					       http://www.springframework.org/schema/aop/spring-aop.xsd
+					       http://www.springframework.org/schema/tx
+	   					   http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <context:property-placeholder location="classpath:property/persistence-mysql.properties" ignore-unresolvable="true" />
+
+    <!-- dbcp数据源连接池 -->
+    <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource">
+        <property name="driverClassName" value="${jdbc.driverClassName}" />
+        <property name="url" value="${jdbc.url}" />
+        <property name="username" value="${jdbc.username}" />
+        <property name="password" value="${jdbc.password}" />
+        <property name="initialSize" value="${dbcp.initialSize}" /><!--初始化连接-->
+        <property name="maxActive" value="${dbcp.maxActive}" /><!--最大连接数量-->
+        <property name="maxIdle" value="${dbcp.maxIdle}" /><!--最大空闲连接-->
+        <property name="minIdle" value="${dbcp.minIdle}" /><!--最小空闲连接-->
+        <property name="maxWait" value="${dbcp.maxWait}" /><!--超时等待时间(以毫秒为单位)-->
+        <property name="removeAbandoned" value="${dbcp.removeAbandoned}" /><!--是否自动回收超时连接-->
+        <property name="removeAbandonedTimeout" value="${dbcp.removeAbandonedTimeout}" /><!--超时时间(以秒数为单位)-->
+    </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:config/mybatis-config.xml" />
+    </bean>
+
+</beans>

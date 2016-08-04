@@ -9,15 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>ml-rpc-rmi</artifactId>
+    <artifactId>ml-rpc-api</artifactId>
 
-    <dependencies>
-        <!-- dependency on module spring-beans -->
-        <dependency>
-            <groupId>org.michaelliu</groupId>
-            <artifactId>ml-rpc-api</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
 
 </project>
