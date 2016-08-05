@@ -1,6 +1,6 @@
 package org.michaelliu.rpc.service;
 
-import org.michaelliu.entity.Account;
+import org.michaelliu.vo.AccountVo;
 
 import java.util.List;
 
@@ -9,8 +9,10 @@ import java.util.List;
  */
 public interface AccountService {
 
-    Account findById(Long id);
+    AccountVo findById(Long id);
 
-    List<Account> findAll();
+    List<AccountVo> findAll();
+
+    List<AccountVo> findByName(String name);
 
 }

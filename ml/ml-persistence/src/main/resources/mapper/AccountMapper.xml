@@ -4,6 +4,73 @@
 
 <mapper namespace="org.michaelliu.dao.AccountMapper">
 
+    <resultMap id="BaseResultMap" type="AccountVo">
+        <id column="id" property="id" jdbcType="BIGINT"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+    </resultMap>
 
+    <sql id="Base_Column_List">
+        id, name
+    </sql>
+
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_account
+        where id = #{id, jdbcType=BIGINT}
+    </select>
+
+    <select id="selectAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_account
+    </select>
+
+    <select id="selectByName" resultMap="BaseResultMap" parameterType="String">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_account
+        where name like "%"#{name, jdbcType=VARCHAR}"%"
+    </select>
+
+    <select id="selectByIdList" resultMap="BaseResultMap" parameterType="java.util.List">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_account
+        WHERE id IN
+        <foreach item="id" index="index" collection="idList" open="(" separator="," close=")">
+            #{id, jdbcType=BIGINT}
+        </foreach>
+    </select>
+
+    <insert id="insertSelective" parameterType="Account" useGeneratedKeys="true" keyProperty="id">
+        insert into tb_account
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="name != null || name != ''">
+                name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id, jdbcType=INTEGER},
+            </if>
+            <if test="name != null and name != ''">
+                #{name, jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+    <update id="updateByPrimaryKeySelective" parameterType="Account">
+        update tb_account
+        <set>
+            <if test="name != null">
+                name = #{name,jdbcType=VARCHAR},
+            </if>
+        </set>
+        where id = #{id,jdbcType=BIGINT}
+    </update>
 
 </mapper>

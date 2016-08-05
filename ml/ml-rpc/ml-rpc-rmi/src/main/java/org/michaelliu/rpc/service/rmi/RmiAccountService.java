@@ -1,12 +1,11 @@
 package org.michaelliu.rpc.service.rmi;
 
 import com.alibaba.fastjson.JSON;
-import com.google.common.collect.Lists;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.michaelliu.dao.AccountMapper;
-import org.michaelliu.entity.Account;
 import org.michaelliu.rpc.service.AccountService;
+import org.michaelliu.vo.AccountVo;
 
 import java.util.List;
 
@@ -26,20 +25,25 @@ public class RmiAccountService implements AccountService {
     }
 
     @Override
-    public Account findById(Long id) {
+    public AccountVo findById(Long id) {
         log.info("findById receives id: " + id);
-        Account account = new Account(1l, "Michael");
-        log.info("findById responses: " + JSON.toJSONString(account));
-        return account;
+        AccountVo accountVo = accountMapper.selectByPrimaryKey(id);
+        log.info("findById responses: " + JSON.toJSONString(accountVo));
+        return accountVo;
     }
 
     @Override
-    public List<Account> findAll() {
-        List<Account> accountList = Lists.newArrayList();
-        accountList.add(new Account(1l, "Michael"));
-        accountList.add(new Account(2l, "Steven"));
-        accountList.add(new Account(3l, "Jackson"));
+    public List<AccountVo> findAll() {
+        List<AccountVo> accountList = accountMapper.selectAll();
         log.info("findAll responses: " + JSON.toJSONString(accountList));
+        return accountList;
+    }
+
+    @Override
+    public List<AccountVo> findByName(String name) {
+        log.info("findByName receives name: " + name);
+        List<AccountVo> accountList = accountMapper.selectByName(name);
+        log.info("findByName responses: " + JSON.toJSONString(accountList));
         return accountList;
     }
 
