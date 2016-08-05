@@ -15,4 +15,6 @@ public interface AccountService {
 
     List<AccountVo> findByName(String name);
 
+    Long saveOrUpdateSelective(AccountVo account) throws Exception;
+
 }

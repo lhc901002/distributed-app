@@ -1,6 +1,6 @@
 package org.michaelliu.rpc.webservice;
 
-import org.michaelliu.entity.Account;
+import org.michaelliu.vo.AccountVo;
 
 import javax.jws.WebService;
 import java.util.List;
@@ -11,8 +11,8 @@ import java.util.List;
 @WebService
 public interface AccountService {
 
-    Account findById(Long id);
+    AccountVo findById(Long id);
 
-    List<Account> findAll();
+    List<AccountVo> findAll();
 
 }

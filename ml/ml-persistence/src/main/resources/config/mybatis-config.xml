@@ -8,10 +8,9 @@
         <typeAlias type="org.michaelliu.vo.AccountVo" alias="AccountVo" />
     </typeAliases>
 
-    <!--<typeHandlers>-->
-        <!--<typeHandler javaType="String" jdbcType="TIMESTAMP" handler="org.michaelliu.spring.orm.mybatis.handler.DateTypeHandler" />-->
-        <!--<typeHandler javaType="String" jdbcType="TINYINT" handler="org.michaelliu.spring.orm.mybatis.handler.ByteTypeHandler" />-->
-    <!--</typeHandlers>-->
+    <typeHandlers>
+        <typeHandler javaType="String" jdbcType="TIMESTAMP" handler="org.michaelliu.handler.DateTypeHandler" />
+    </typeHandlers>
 
     <mappers>
         <mapper resource="mapper/AccountMapper.xml"/>

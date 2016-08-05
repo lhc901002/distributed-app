@@ -3,40 +3,32 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>ml-all</artifactId>
+        <artifactId>ml-rpc</artifactId>
         <groupId>org.michaelliu</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>ml-rpc</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>ml-rpc-webservice</module>
-        <module>ml-rpc-redis</module>
-        <module>ml-rpc-memcached</module>
-        <module>ml-rpc-api</module>
-        <module>ml-rpc-remote</module>
-    </modules>
+    <artifactId>ml-rpc-remote</artifactId>
 
     <properties>
-        <spring.version>4.3.0.RELEASE</spring.version>
+        <hessian.version>4.0.38</hessian.version>
     </properties>
 
     <dependencies>
-        <!-- dependency on module spring-beans -->
+        <!-- dependency on module ml-rpc-api -->
         <dependency>
             <groupId>org.michaelliu</groupId>
-            <artifactId>ml-persistence</artifactId>
+            <artifactId>ml-rpc-api</artifactId>
             <version>${project.version}</version>
         </dependency>
 
-        <!-- spring MVC -->
+        <!-- hessian dependency -->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-webmvc</artifactId>
-            <version>${spring.version}</version>
+            <groupId>com.caucho</groupId>
+            <artifactId>hessian</artifactId>
+            <version>${hessian.version}</version>
         </dependency>
+
     </dependencies>
 
 </project>

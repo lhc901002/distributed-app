@@ -6,7 +6,7 @@
 
     <import resource="classpath:config/mapper-config.xml" />
 
-    <bean id="hessianAccountService" class="org.michaelliu.rpc.service.hessian.HessianAccountService">
+    <bean id="hessianAccountService" class="org.michaelliu.rpc.service.impl.AccountServiceImpl">
         <property name="accountMapper" ref="accountMapper"/>
     </bean>
 
