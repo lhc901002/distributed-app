@@ -10,6 +10,7 @@
 
     <modules>
         <module>netty-http-server</module>
+        <module>netty-socket-server</module>
     </modules>
 
     <properties>
