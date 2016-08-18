@@ -1,4 +1,4 @@
-package org.michaelliu.http.client;
+package org.michaelliu.http.client.test;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
