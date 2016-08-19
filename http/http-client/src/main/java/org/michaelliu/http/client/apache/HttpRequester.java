@@ -1,4 +1,4 @@
-package org.michaelliu.http.client;
+package org.michaelliu.http.client.apache;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -21,7 +21,8 @@ import org.apache.http.util.EntityUtils;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.lang.String;import java.util.*;import java.util.ArrayList;import java.util.HashMap;import java.util.Iterator;import java.util.List;import java.util.Map;
+import java.lang.String;
+import java.util.ArrayList;import java.util.HashMap;import java.util.Iterator;import java.util.List;import java.util.Map;
 
 /**
  * 类HttpRequester

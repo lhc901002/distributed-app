@@ -1,6 +1,6 @@
 package org.michaelliu.http.client.test;
 
-import org.michaelliu.http.client.HttpRequester;
+import org.michaelliu.http.client.apache.HttpRequester;
 
 import java.util.concurrent.atomic.AtomicInteger;
 
